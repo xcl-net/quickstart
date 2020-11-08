@@ -40,6 +40,11 @@ namespace MvcClient
                 options.ResponseType = "code";
 
                 options.SaveTokens = true;
+
+
+                //Getting claims from the UserInfo endpoint
+                options.Scope.Add("profile");
+                options.GetClaimsFromUserInfoEndpoint = true;
             });
 
         }
@@ -47,7 +52,7 @@ namespace MvcClient
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            //if (env.IsDevelopment())
+            //if (env.IsDevelopment())  
             //{
             //    app.UseDeveloperExceptionPage();
             //}
